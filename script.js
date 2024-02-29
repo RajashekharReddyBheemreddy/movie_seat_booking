@@ -39,7 +39,8 @@ container.addEventListener('click', (e) => {
 // Get data from local storage and populate ui
 function populateUI() {
     const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
-    if(selectedSeats.length > 0 && selectedSeats !== null){
+    const seatsLength = selectedSeats.length;
+    if(seatsLength > 0 && selectedSeats !== null){
         seats.forEach((seat, index) => {
             if(selectedSeats.indexOf(index) > -1){
                 seat.classList.add('selected');
