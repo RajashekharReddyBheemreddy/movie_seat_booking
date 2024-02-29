@@ -12,7 +12,7 @@ const updateSelectedCount = () => {
     const selectedseats = document.querySelectorAll('.row .seat.selected');
 
     const seatsIndex = [...selectedseats].map((seat) => [...seats].indexOf(seat));
-    localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex))
+    // localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex))
 
     const selectedseatsCount = selectedseats.length;
 
@@ -22,7 +22,7 @@ const updateSelectedCount = () => {
 // Movie select event
 movieSelect.addEventListener('change', (e) => {
     ticketPrice = +e.target.value;
-    localStorage.setItem('selectedMovieIndex',e.target.selectedIndex);
+    // localStorage.setItem('selectedMovieIndex',e.target.selectedIndex);
     updateSelectedCount();
 
 })
@@ -38,7 +38,8 @@ container.addEventListener('click', (e) => {
 })
 // Get data from local storage and populate ui
 function populateUI() {
-    const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
+    let selectedSeats = 0
+    // const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
     const seatsLength = selectedSeats?.length;
     if(selectedSeats !== null && seatsLength > 0){
         seats.forEach((seat, index) => {
